@@ -13,10 +13,53 @@ function get_categories() {
     return trivia;
 ;}
 
+function get_question(cat_id) {
+    console.log("getting question...");
+    let question = fetch("http://jservice.io/api/category?id=" + cat_id).then(response => {
+        if(!response.ok){
+            throw Error(response.statusText);
+        }
+        return response;
+    }).then(j_response => {
+        return j_response.json();
+    }).catch(error => {
+        console.log(error);
+    })
+    return question;
+}
+
+// function push_question(arr_1, arr_2) {
+//     arr_1.forEach(function(cat) {
+//         var cat_id = cat.id;
+//         var questions = Promise.resolve(get_question(cat_id)).then(response => {
+//             console.log(response.id);
+//             arr_2.push(response);
+//             return arr_2;
+//         })
+//     })
+// }
+
+function push_question(arr_1, arr_2) {
+    for(let i = 0; i < 6; i++) {
+        var cat_id = arr_1[i].id;
+        var questions = Promise.resolve(get_question(cat_id));
+        arr_2.push(questions);
+    }
+    return arr_2;
+}
+
 function display_questions() {
+    let questions_arr = [];
     console.log("displaying categories...")
     Promise.resolve(get_categories()).then(cat => {
-        console.log(cat);
+       return cat;
+    }).then(cat => {
+        return Promise.all(push_question(cat, questions_arr));
+    }).then(response => {
+        response.forEach(function(res) {
+            console.log("category: " + res.title);
+            console.log(res.clues);
+        })
     })
 }
 
