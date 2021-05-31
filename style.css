@@ -1,0 +1,103 @@
+body{
+    background-color: rgb(50,75,193);
+}
+#header {
+    display: block;
+    background-color: white;
+    width: 100vw;
+    height: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#logo {
+    display: block;
+    width: 27rem;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#user-input {
+    display: block;
+    background-color: white;
+    width: 100vw;
+    height: 5rem;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+#question-grid {
+    margin-top: 15rem;
+    margin-bottom: 10rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    width: 80rem;
+    height: 60rem;
+}
+.question-row {
+    width: 80rem;
+    height:10rem;
+
+    display: flex;
+}
+.question-block {
+    border: 1.5px solid black;
+    width: 15rem;
+    text-align: center;
+    line-height: 10rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 5rem;
+    color: goldenrod;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
+
+.category {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    line-height: 1rem;
+    padding: 1.5rem;
+}
+
+#answer-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 4rem;
+    
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.4rem;
+    color: rgb(50,75,193);
+}
+
+#answer-label {
+    margin-right: 1.5rem;
+    text-decoration: solid;
+    font-weight: bold;
+}
+
+#answer {
+    border-radius: 3px;
+    height: 1.5rem;
+    width: 15rem;
+    margin-right: 1rem;
+}
+
+#answer-submit {
+    border-radius: 3px;
+    border: 1px solid rgb(50,75,193);
+    height: 2rem;
+    width: 3rem;
+    background-color: rgb(50,75,193);
+    color: white;
+    font-weight: bolder;
+}

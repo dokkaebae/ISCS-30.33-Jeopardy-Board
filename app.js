@@ -28,17 +28,6 @@ function get_question(cat_id) {
     return question;
 }
 
-// function push_question(arr_1, arr_2) {
-//     arr_1.forEach(function(cat) {
-//         var cat_id = cat.id;
-//         var questions = Promise.resolve(get_question(cat_id)).then(response => {
-//             console.log(response.id);
-//             arr_2.push(response);
-//             return arr_2;
-//         })
-//     })
-// }
-
 function push_question(arr_1, arr_2) {
     for(let i = 0; i < 6; i++) {
         var cat_id = arr_1[i].id;

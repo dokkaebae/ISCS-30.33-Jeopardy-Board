@@ -4,10 +4,69 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Pass 1</title>
+        <link rel="stylesheet" href="style.css">
     </head>
-    <body>
-        <div id="container">
-            <p>Press F12 to open your console.</p>
+    <body id="container">
+        <div id="header">
+            <img id="logo" 
+                src="https://logonoid.com/images/jeopardy-logo.png">
+        </div>
+        <div id="question-grid">
+            <div class="question-row">
+                <span class="1 question-block category" id="0">0</span>
+                <span class="2 question-block category" id="0">0</span>
+                <span class="3 question-block category" id="0">0</span>
+                <span class="4 question-block category" id="0">0</span>
+                <span class="5 question-block category" id="0">0</span>
+                <span class="6 question-block category" id="0">0</span>
+            </div>
+            <div class="question-row">
+                <span class="1 question-block" id="1">1</span>
+                <span class="2 question-block" id="1">1</span>
+                <span class="3 question-block" id="1">1</span>
+                <span class="4 question-block" id="1">1</span>
+                <span class="5 question-block" id="1">1</span>
+                <span class="6 question-block" id="1">1</span>
+            </div>
+            <div class="question-row">
+                <span class="1 question-block" id="2">2</span>
+                <span class="2 question-block" id="2">2</span>
+                <span class="3 question-block" id="2">2</span>
+                <span class="4 question-block" id="2">2</span>
+                <span class="5 question-block" id="2">2</span>
+                <span class="6 question-block" id="2">2</span>
+            </div>
+            <div class="question-row">
+                <span class="1 question-block" id="3">3</span>
+                <span class="2 question-block" id="3">3</span>
+                <span class="3 question-block" id="3">3</span>
+                <span class="4 question-block" id="3">3</span>
+                <span class="5 question-block" id="3">3</span>
+                <span class="6 question-block" id="3">3</span>
+            </div>
+            <div class="question-row">
+                <span class="1 question-block" id="4">4</span>
+                <span class="2 question-block" id="4">4</span>
+                <span class="3 question-block" id="4">4</span>
+                <span class="4 question-block" id="4">4</span>
+                <span class="5 question-block" id="4">4</span>
+                <span class="6 question-block" id="4">4</span>
+            </div>
+            <div class="question-row">
+                <span class="1 question-block" id="5">5</span>
+                <span class="2 question-block" id="5">5</span>
+                <span class="3 question-block" id="5">5</span>
+                <span class="4 question-block" id="5">5</span>
+                <span class="5 question-block" id="5">5</span>
+                <span class="6 question-block" id="5">5</span>
+            </div>
+        </div>
+        <div id="user-input">
+            <form id="answer-form">
+                <label for="answer" id="answer-label">ANSWER: </label>
+                <input type="text" id="answer" name="answer">
+                <input type="submit" id="answer-submit" value="&rarr;">
+            </form>
         </div>
         <script
             src="app.js">
