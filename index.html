@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Pass 1</title>
+        <title>Pass 2</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body id="container">
@@ -13,52 +13,52 @@
         </div>
         <div id="question-grid">
             <div class="question-row">
-                <span class="1 question-block category"></span>
-                <span class="2 question-block category"></span>
-                <span class="3 question-block category"></span>
-                <span class="4 question-block category"></span>
-                <span class="5 question-block category"></span>
-                <span class="6 question-block category"></span>
+                <span class="question-block category"></span>
+                <span class="question-block category"></span>
+                <span class="question-block category"></span>
+                <span class="question-block category"></span>
+                <span class="question-block category"></span>
+                <span class="question-block category"></span>
             </div>
             <div class="question-row">
-                <span class="1 question-block hidden"></span>
-                <span class="2 question-block hidden"></span>
-                <span class="3 question-block hidden"></span>
-                <span class="4 question-block hidden"></span>
-                <span class="5 question-block hidden"></span>
-                <span class="6 question-block hidden"></span>
+                <span id="0" class="question-block hidden"></span>
+                <span id="1" class="question-block hidden"></span>
+                <span id="2" class="question-block hidden"></span>
+                <span id="3" class="question-block hidden"></span>
+                <span id="4" class="question-block hidden"></span>
+                <span id="5" class="question-block hidden"></span>
             </div>
             <div class="question-row">
-                <span class="1 question-block hidden"></span>
-                <span class="2 question-block hidden"></span>
-                <span class="3 question-block hidden"></span>
-                <span class="4 question-block hidden"></span>
-                <span class="5 question-block hidden"></span>
-                <span class="6 question-block hidden"></span>
+                <span id="6" class="question-block hidden"></span>
+                <span id="7" class="question-block hidden"></span>
+                <span id="8" class="question-block hidden"></span>
+                <span id="9" class="question-block hidden"></span>
+                <span id="10" class="question-block hidden"></span>
+                <span id="11" class="question-block hidden"></span>
             </div>
             <div class="question-row">
-                <span class="1 question-block hidden"></span>
-                <span class="2 question-block hidden"></span>
-                <span class="3 question-block hidden"></span>
-                <span class="4 question-block hidden"></span>
-                <span class="5 question-block hidden"></span>
-                <span class="6 question-block hidden"></span>
+                <span id="12" class="question-block hidden"></span>
+                <span id="13" class="question-block hidden"></span>
+                <span id="14" class="question-block hidden"></span>
+                <span id="15" class="question-block hidden"></span>
+                <span id="16" class="question-block hidden"></span>
+                <span id="17" class="question-block hidden"></span>
             </div>
             <div class="question-row">
-                <span class="1 question-block hidden"></span>
-                <span class="2 question-block hidden"></span>
-                <span class="3 question-block hidden"></span>
-                <span class="4 question-block hidden"></span>
-                <span class="5 question-block hidden"></span>
-                <span class="6 question-block hidden"></span>
+                <span id="18" class="question-block hidden"></span>
+                <span id="19" class="question-block hidden"></span>
+                <span id="20" class="question-block hidden"></span>
+                <span id="21" class="question-block hidden"></span>
+                <span id="22" class="question-block hidden"></span>
+                <span id="23" class="question-block hidden"></span>
             </div>
             <div class="question-row">
-                <span class="1 question-block hidden"></span>
-                <span class="2 question-block hidden"></span>
-                <span class="3 question-block hidden"></span>
-                <span class="4 question-block hidden"></span>
-                <span class="5 question-block hidden"></span>
-                <span class="6 question-block hidden"></span>
+                <span id="24" class="question-block hidden"></span>
+                <span id="25" class="question-block hidden"></span>
+                <span id="26" class="question-block hidden"></span>
+                <span id="27" class="question-block hidden"></span>
+                <span id="28" class="question-block hidden"></span>
+                <span id="29" class="question-block hidden"></span>
             </div>
         </div>
         <div id="user-input">
@@ -67,6 +67,10 @@
                 <input type="text" id="answer" name="answer">
                 <input type="submit" id="answer-submit" value="&rarr;">
             </form>
+        </div>
+        <div id="score-panel">
+            <h3>Score:</h3>
+            <p id="score"></p>
         </div>
         <script
             src="app.js">

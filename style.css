@@ -61,6 +61,9 @@ body{
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
+.question-block:hover {
+    cursor: pointer;
+}
 
 .hidden {
     font-size: 3rem;
@@ -80,8 +83,10 @@ body{
 }
 
 .question {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: white;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
 }
 
 #answer-form {
@@ -116,4 +121,18 @@ body{
     background-color: rgb(50,75,193);
     color: white;
     font-weight: bolder;
+}
+
+#score-panel {
+    display: block;
+    position: fixed;
+    width: 13rem;
+    border-radius: 5px;
+    padding-left: 1rem;
+    right: 1rem;
+    top: 1rem;
+    background-color: goldenrod;
+    font-family: sans-serif;
+    color: white;
+    text-transform: uppercase;
 }
