@@ -5,6 +5,8 @@ let selected;
 let question_grid = document.querySelectorAll(".question-block");
 let question_row = document.querySelectorAll(".question-row");
 let submit_btn = document.querySelector("#answer-submit");
+let modal = document.querySelector("#modal");
+let close_modal = document.querySelector("#close-modal");
 
 function get_categories() {
     console.log("getting category...");
@@ -111,7 +113,11 @@ function display_questions() {
 // the setup
 display_questions();
 
-
+function show_modal(arr_id) {
+    modal.style.display = "block";
+    var modal_question = document.querySelector("#modal-question");
+    modal_question.textContent = questions_arr[arr_id];
+}
 // user interaction
 function select_question() {
     question_grid.forEach(function(block) {
@@ -121,9 +127,9 @@ function select_question() {
                 this.textContent = questions_arr[this.id]
                 this.classList.replace("hidden", "question");
                 selected = this.id;
+                show_modal(selected);
             }
         })
-        
     })
 }
 
@@ -139,6 +145,10 @@ submit_btn.addEventListener("click", function(event) {
     }
 })
 
+close_modal.addEventListener("click", function() {
+    modal.style.display = "none";
+    hide_questions();
+})
 select_question();
 // css text stroke: https://www.codesdope.com/blog/article/adding-outline-to-text-using-css/
 // hide scrollbars: https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp
