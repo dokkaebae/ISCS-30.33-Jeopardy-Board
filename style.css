@@ -128,7 +128,8 @@ body{
 }
 
 #score-panel {
-    display: block;
+    display: flex;
+    flex-direction: row;
     position: fixed;
     width: 13rem;
     border-radius: 5px;
@@ -140,6 +141,12 @@ body{
     color: white;
     text-transform: uppercase;
     z-index: 1;
+}
+
+#score {
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 #modal {
@@ -174,6 +181,18 @@ body{
     padding-right: 2rem;
 }
 
+.correct {
+    font-size: 1.5rem;
+    color: rgb(153, 255, 153);
+    -webkit-text-stroke-width: 0.5px;
+}
+
+.incorrect {
+    font-size: 1.5rem;
+    color: rgb(100, 18, 18);
+    -webkit-text-stroke-width: 0.5px;
+}
+/**
 #close-modal {
     color:white;
     position: absolute;
@@ -185,3 +204,4 @@ body{
 #close-modal:hover {
     cursor: pointer;
 }
+**/

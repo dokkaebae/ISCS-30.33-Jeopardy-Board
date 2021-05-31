@@ -1,12 +1,14 @@
 let questions_arr = [];
 let answers_arr = [];
 let selected;
+let score = 0;
 
 let question_grid = document.querySelectorAll(".question-block");
 let question_row = document.querySelectorAll(".question-row");
 let submit_btn = document.querySelector("#answer-submit");
 let modal = document.querySelector("#modal");
-let close_modal = document.querySelector("#close-modal");
+let current_score = document.querySelector("#score");
+// let close_modal = document.querySelector("#close-modal");
 
 function get_categories() {
     console.log("getting category...");
@@ -54,7 +56,7 @@ function hide_questions() {
             val += 200;
         } else {
             for (let i = 1; i <= 11; i+=2) {
-                if (row.childNodes[i].classList.contains("answered")) {
+                if (row.childNodes[i].classList.contains("correct")||row.childNodes[i].classList.contains("incorrect")) {
                     continue;
                 }
                 row.childNodes[i].textContent = "$"+val;
@@ -133,6 +135,51 @@ function select_question() {
     })
 }
 
+function close_mod() {
+    modal.style.display = "none";
+    hide_questions();
+}
+// close_modal.addEventListener("click", close_mod);
+
+function add_score(to_add) {
+    score += to_add;
+    current_score.textContent = "$" + score;
+}
+
+function update_score(arr_id, correct) {
+    if (arr_id <= 5) {
+        if (correct) {
+            add_score(200);
+        } else {
+            add_score(-200);
+        }
+    } else if (arr_id <= 11) {
+        if (correct) {
+            add_score(400);
+        } else {
+            add_score(-400);
+        }
+    } else if (arr_id <= 17) {
+        if (correct) {
+            add_score(600);
+        } else {
+            add_score(-600);
+        }
+    } else if (arr_id <= 23) {
+        if (correct) {
+            add_score(800);
+        } else {
+            add_score(-800);
+        }
+    } else if (arr_id <= 29) {
+        if (correct) {
+            add_score(1000);
+        } else {
+            add_score(-1000);
+        }
+    }
+}
+
 submit_btn.addEventListener("click", function(event) {
     event.preventDefault();
     if(selected==null) {
@@ -140,16 +187,30 @@ submit_btn.addEventListener("click", function(event) {
     } else {
         var ans = document.querySelector("#answer");
         if (ans.value.toUpperCase() == answers_arr[selected].toUpperCase()) {
-            console.log("correct");
+            close_mod();
+            question_grid[+6 + +selected].textContent = answers_arr[selected];
+            question_grid[+6 + +selected].classList.add("correct");
+            question_grid[+6 + +selected].style.pointerEvents = "none";
+            update_score(selected, true);
+        } else {
+            close_mod();
+            question_grid[+6 + +selected].textContent = answers_arr[selected];
+            question_grid[+6 + +selected].classList.add("incorrect");
+            question_grid[+6 + +selected].style.pointerEvents = "none";
+            update_score(selected, false);
         }
+        ans.value = "";
     }
 })
 
-close_modal.addEventListener("click", function() {
-    modal.style.display = "none";
-    hide_questions();
-})
+
 select_question();
+add_score(0);
+
+// PASS 2
 // css text stroke: https://www.codesdope.com/blog/article/adding-outline-to-text-using-css/
 // hide scrollbars: https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp
 // prevent refresh after submit: https://devnet.kentico.com/questions/prevent-page-refreshing-when-clicking-a-button
+
+// PASS 3
+// disable events: https://stackoverflow.com/questions/28083708/how-to-disable-clicking-inside-div/28083939
