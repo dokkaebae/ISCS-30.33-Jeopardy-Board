@@ -49,9 +49,22 @@ body{
     border: 1.5px solid black;
     width: 15rem;
     text-align: center;
-    line-height: 10rem;
+    padding: auto;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 5rem;
+    padding: 1rem;
+    overflow-y:scroll;
+}
+.question-block::-webkit-scrollbar {
+    display: none;
+}
+.question-block {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.hidden {
+    font-size: 3rem;
+    padding-top: 2rem;
     color: goldenrod;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
@@ -64,8 +77,11 @@ body{
     font-size: 1.2rem;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
-    line-height: 1rem;
-    padding: 1.5rem;
+}
+
+.question {
+    font-size: 1.2rem;
+    color: white;
 }
 
 #answer-form {
