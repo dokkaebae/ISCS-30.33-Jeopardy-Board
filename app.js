@@ -15,7 +15,7 @@ let laugh = new Audio("audio/laugh.mp3");
 
 function get_categories() {
     console.log("getting category...");
-    let trivia = fetch("http://jservice.io/api/categories?count=6&offset=" + Math.floor(Math.random()*100)).then(response => { 
+    let trivia = fetch("http://jservice.io/api/categories?count=6&offset=" + Math.floor(Math.random()*10)).then(response => { 
         if(!response.ok){
             throw Error(response.statusText);
         }
@@ -198,7 +198,7 @@ submit_btn.addEventListener("click", function(event) {
         if(ans.value == "") {
             alert("Please enter an answer first.")
         } else {
-            if (ans.value.toUpperCase() == answers_arr[selected].toUpperCase()) {
+            if (ans.value.toUpperCase() == answers_arr[selected].toUpperCase() || answers_arr[selected].toUpperCase().includes(ans.value.toUpperCase())) {
                 close_mod();
                 clap.pause();
                 clap.currentTime = 0;
