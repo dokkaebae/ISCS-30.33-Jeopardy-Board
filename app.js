@@ -8,6 +8,9 @@ let question_row = document.querySelectorAll(".question-row");
 let submit_btn = document.querySelector("#answer-submit");
 let modal = document.querySelector("#modal");
 let current_score = document.querySelector("#score");
+let score_panel = document.querySelector("#score-panel");
+let clap = new Audio("audio/clap.mp3");
+let laugh = new Audio("audio/laugh.mp3");
 // let close_modal = document.querySelector("#close-modal");
 
 function get_categories() {
@@ -142,8 +145,14 @@ function close_mod() {
 // close_modal.addEventListener("click", close_mod);
 
 function add_score(to_add) {
+    if (to_add > 0) {
+        score_panel.style.backgroundColor = "rgb(153, 255, 153)";
+    } else if (to_add < 0) {
+        score_panel.style.backgroundColor = "rgb(100, 18, 18)";
+    }
     score += to_add;
     current_score.textContent = "$" + score;
+    score_panel.style.backgroundColor = "goldenrod";
 }
 
 function update_score(arr_id, correct) {
@@ -186,20 +195,34 @@ submit_btn.addEventListener("click", function(event) {
         alert("Please select a question first.")
     } else {
         var ans = document.querySelector("#answer");
-        if (ans.value.toUpperCase() == answers_arr[selected].toUpperCase()) {
-            close_mod();
-            question_grid[+6 + +selected].textContent = answers_arr[selected];
-            question_grid[+6 + +selected].classList.add("correct");
-            question_grid[+6 + +selected].style.pointerEvents = "none";
-            update_score(selected, true);
+        if(ans.value == "") {
+            alert("Please enter an answer first.")
         } else {
-            close_mod();
-            question_grid[+6 + +selected].textContent = answers_arr[selected];
-            question_grid[+6 + +selected].classList.add("incorrect");
-            question_grid[+6 + +selected].style.pointerEvents = "none";
-            update_score(selected, false);
+            if (ans.value.toUpperCase() == answers_arr[selected].toUpperCase()) {
+                close_mod();
+                clap.pause();
+                clap.currentTime = 0;
+                laugh.pause();
+                laugh.currentTime = 0;
+                clap.play();
+                question_grid[+6 + +selected].textContent = answers_arr[selected];
+                question_grid[+6 + +selected].classList.add("correct");
+                question_grid[+6 + +selected].style.pointerEvents = "none";
+                update_score(selected, true);
+            } else {
+                close_mod();
+                clap.pause();
+                clap.currentTime = 0;
+                laugh.pause();
+                laugh.currentTime = 0;
+                laugh.play();
+                question_grid[+6 + +selected].textContent = answers_arr[selected];
+                question_grid[+6 + +selected].classList.add("incorrect");
+                question_grid[+6 + +selected].style.pointerEvents = "none";
+                update_score(selected, false);
+            }
+            ans.value = "";
         }
-        ans.value = "";
     }
 })
 
@@ -214,3 +237,8 @@ add_score(0);
 
 // PASS 3
 // disable events: https://stackoverflow.com/questions/28083708/how-to-disable-clicking-inside-div/28083939
+
+
+// PASS 4
+// adding audio: https://stackoverflow.com/questions/9419263/how-to-play-audio
+// interrupting audio: https://stackoverflow.com/questions/14834520/html5-audio-stop-function

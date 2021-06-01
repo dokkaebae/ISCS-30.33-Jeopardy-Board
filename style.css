@@ -53,7 +53,8 @@ body{
     padding: auto;
     font-family: Arial, Helvetica, sans-serif;
     padding: 1rem;
-    overflow-y:scroll;
+    overflow-y:hidden;
+    transition: all 0.5s;
 }
 .question-block::-webkit-scrollbar {
     display: none;
@@ -64,6 +65,7 @@ body{
 }
 .question-block:hover {
     cursor: pointer;
+    background-color: rgb(103, 124, 231);
 }
 
 .hidden {
