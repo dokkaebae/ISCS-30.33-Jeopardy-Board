@@ -15,7 +15,7 @@ let laugh = new Audio("audio/laugh.mp3");
 
 function get_categories() {
     console.log("getting category...");
-    let trivia = fetch("http://jservice.io/api/categories?count=6&offset=" + Math.floor(Math.random()*10)).then(response => { 
+    let trivia = fetch("http://jservice.io/api/categories?count=6&offset=" + Math.floor(Math.random()*500)).then(response => { 
         if(!response.ok){
             throw Error(response.statusText);
         }
